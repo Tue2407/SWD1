@@ -15,7 +15,19 @@ namespace ObserverPatternHandin
 
     public class Stock
     {
+        public string _ticker { set; get; }
+        public int _value { set; get; }
 
+        public Stock(string ticker, int value)
+        {
+            _ticker = ticker;
+            _value = value;
+        }
+
+        public void setStockValue()
+        {
+
+        }
     }
 
     public class Portfolio
@@ -25,6 +37,5 @@ namespace ObserverPatternHandin
 
     public class PortfolioDisplay
     {
-
     }
 }
