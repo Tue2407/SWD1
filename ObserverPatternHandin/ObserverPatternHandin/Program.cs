@@ -28,14 +28,14 @@ namespace ObserverPatternHandin
         {
 
         }
-        public class Portfolio
-        {
+    }
 
-        }
+    public class Portfolio
+    {
 
-        public class PortfolioDisplay
-        {
+    }
 
-        }
+    public class PortfolioDisplay
+    {
     }
 }
