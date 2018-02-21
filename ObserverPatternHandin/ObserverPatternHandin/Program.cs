@@ -27,6 +27,15 @@ namespace ObserverPatternHandin
         public void setStockValue()
         {
 
-        }   
+        }
+        public class Portfolio
+        {
+
+        }
+
+        public class PortfolioDisplay
+        {
+
+        }
     }
 }
