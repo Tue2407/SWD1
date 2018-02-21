@@ -12,4 +12,19 @@ namespace ObserverPatternHandin
         {
         }
     }
+
+    class Stock
+    {
+
+    }
+
+    public class Portfolio
+    {
+
+    }
+
+    public class PortfolioDisplay
+    {
+
+    }
 }
