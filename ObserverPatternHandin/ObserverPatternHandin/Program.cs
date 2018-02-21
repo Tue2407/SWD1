@@ -15,8 +15,26 @@ namespace ObserverPatternHandin
 
     public class Stock
     {
+        public event System.EventHandler ValueChanged;
+
+
+        protected virtual void OnValueChanged()
+        {
+            if (ValueChanged != null) ValueChanged(this, EventArgs.Empty);
+        }
+
         public string _ticker { set; get; }
-        public int _value { set; get; }
+
+        public int _value
+        {
+            set
+            {
+                _value = value;
+                OnValueChanged();
+            }
+            get { return _value; }
+        }
+    
 
         public Stock(string ticker, int value)
         {
@@ -24,10 +42,12 @@ namespace ObserverPatternHandin
             _value = value;
         }
 
-        public void setStockValue()
-        {
+        
+        
 
-        }
+        
+
+
     }
 
     public class Portfolio
@@ -37,5 +57,6 @@ namespace ObserverPatternHandin
 
     public class PortfolioDisplay
     {
+           
     }
 }
