@@ -13,14 +13,14 @@ namespace ObserverPatternHandin
         }
     }
 
-    class Stock
+    public class Stock
     {
 
     }
 
     public class Portfolio
     {
-
+        private List<Stock> stockList = new List<Stock>();
     }
 
     public class PortfolioDisplay
