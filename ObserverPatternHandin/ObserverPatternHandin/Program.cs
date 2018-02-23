@@ -11,13 +11,18 @@ namespace ObserverPatternHandin
     {
         static void Main(string[] args)
         {
-            Stock obj = new Stock();
-            var name = obj._ticker = "Nystock";
-            var value = obj._value = 5;
-            //Stack overflow exception
-            Console.WriteLine($"{name} : {value}");
-            PortfolioDisplay disp = new PortfolioDisplay();
-            disp.Display();
+            /*Stock obj1 = new Stock();
+            var name = obj1._ticker = "Nystock";
+            var value = obj1._value = 5;
+            Portfolio obj2 = new Portfolio();
+            obj2.stockList = new List<Stock>();
+            obj2.stockList.Add(obj1);*/
+            PortfolioDisplay obj3 = new PortfolioDisplay();
+            obj3.Display();
+            //Virker
+            //Console.WriteLine($"{name} : {value} : {obj2.stockList[0]}");
+            
+            
 
         }
     }
@@ -62,14 +67,15 @@ namespace ObserverPatternHandin
     {
         public void Display()
         {
-            
-            Portfolio obj = new Portfolio();
-            //var value = obj.stockList[1]._value;
-            
+            Stock obj1 = new Stock();
+            Portfolio obj2 = new Portfolio();
+            obj2.stockList = new List<Stock>();
+            obj2.stockList.Add(obj1);
+
             //Insert stocks
             Console.WriteLine("Dine stocks:");
             //Udskriv alle stocks
-            obj.stockList.ForEach(i => Console.Write("{0}\t", i));
+            obj2.stockList.ForEach(i => Console.WriteLine("{0}\t", i));
         }
         //Test somedude
     }
