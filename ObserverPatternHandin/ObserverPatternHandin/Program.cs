@@ -24,7 +24,7 @@ namespace ObserverPatternHandin
             //Virker
             //Console.WriteLine($"{name} : {value} : {obj2.stockList[0]}");
             
-            
+            //hej
 
         }
     }
