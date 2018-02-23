@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ObserverPatternHandin
 {
     class Program
     {
         static void Main(string[] args)
         {
-
         }
     }
 
@@ -48,7 +48,10 @@ namespace ObserverPatternHandin
             _value = value;
         }
 
-        public void ChangeStockValue(string ticker, float value)
+        public Stock()
+        { }
+
+        public void changeStockValue(string ticker, float value)
         {
             Console.WriteLine("Enter ticker symbol: ");
             _ticker = Console.ReadLine();
@@ -56,12 +59,18 @@ namespace ObserverPatternHandin
             _value = Convert.ToInt32(Console.ReadLine());
         }
 
+        public override string ToString()
+        {
+            return "Ticker: " + _ticker + " -- Value: " + _value;
+        }
     }
 
     public class Portfolio
     {
         public List<Stock> stockList = new List<Stock>();
 
+        public Portfolio()
+        { }
     }
 
     public class PortfolioDisplay : Portfolio
