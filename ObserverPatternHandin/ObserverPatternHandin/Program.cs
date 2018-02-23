@@ -100,7 +100,7 @@ namespace ObserverPatternHandin
             Portfolio obj2 = new Portfolio();
             obj2.stockList = new List<Stock>();
             obj2.stockList.Add(obj1);
-
+            //test23
             //Insert stocks
             Console.WriteLine("Dine stocks:");
             //Udskriv alle stocks
