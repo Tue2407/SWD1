@@ -16,18 +16,8 @@ namespace ObserverPatternHandin
 
     public class Stock
     {
-        public string _ticker
-        {
-            get => _ticker;
-            set => _ticker = value;
-        }
-
-        public float _value
-        {
-            get => _value;
-            set => _value = value;
-        }
-
+        public string _ticker { set; get; }
+        public float _value { set; get; }
         public Stock(string ticker, float value)
         {
             _ticker = ticker;
