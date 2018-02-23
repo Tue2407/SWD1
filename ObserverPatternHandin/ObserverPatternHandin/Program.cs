@@ -11,65 +11,31 @@ namespace ObserverPatternHandin
     {
         static void Main(string[] args)
         {
-            Stock obj = new Stock();
-            var name = obj._ticker = "Nystock";
-            var value = obj._value = 5;
-            //Stack overflow exception
-            Console.WriteLine($"{name} : {value}");
+            /*Stock obj1 = new Stock();
+            var name = obj1._ticker = "Nystock";
+            var value = obj1._value = 5;
+            Portfolio obj2 = new Portfolio();
+            obj2.stockList = new List<Stock>();
+            obj2.stockList.Add(obj1);*/
+            PortfolioDisplay obj3 = new PortfolioDisplay();
+            obj3.Display();
+            //Virker
+            //Console.WriteLine($"{name} : {value} : {obj2.stockList[0]}");
+            
             
 
         }
     }
 
-    public class Stock
+    public interface ISubject
     {
-        public string _ticker { set; get; }
-        public float _value { set; get; }
-
-        public Stock(string ticker, float value)
-        {
-            _ticker = ticker;
-            _value = value;
-        }
-
-        public Stock()
-        { }
-
-        public void changeStockValue(string ticker, float value)
-        {
-            Console.WriteLine("Enter ticker symbol: ");
-            _ticker = Console.ReadLine();
-            Console.WriteLine("Enter stock value: ");
-            _value = Convert.ToInt32(Console.ReadLine());
-        }
-
-        public override string ToString()
-        {
-            return "Ticker: " + _ticker + " -- Value: " + _value;
-        }
+        void registerObserver();
+        void removeObserver();
+        void notifyObserver();       
     }
 
-    public class Portfolio
+    public interface IObserver
     {
-        public List<Stock> stockList = new List<Stock>();
-
-        public Portfolio()
-        { }
-    }
-
-    public class PortfolioDisplay
-    {
-        public void Display()
-        {
-            
-            Portfolio obj = new Portfolio();
-            //var value = obj.stockList[1]._value;
-            
-            //Insert stocks
-            Console.WriteLine("Dine stocks:");
-            //Udskriv alle stocks
-            obj.stockList.ForEach(i => Console.Write("{0}\t", i));
-        }
-        //Test somedude
+        //Update() typen data
     }
 }
