@@ -41,5 +41,6 @@ namespace ObserverPatternHandin
 
     public class PortfolioDisplay
     {
+        //Test somedude
     }
 }
