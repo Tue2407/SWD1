@@ -52,6 +52,7 @@ namespace ObserverPatternHandin
     public class Portfolio
     {
         public List<Stock> stockList = new List<Stock>();
+        //testcomment
 
         public Portfolio()
         { }
