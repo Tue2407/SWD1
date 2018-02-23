@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ObserverPatternHandin
 {
+    //Implementation inde i Display
     public interface IDisplay
     {
         void PrintPF(Portfolio port);

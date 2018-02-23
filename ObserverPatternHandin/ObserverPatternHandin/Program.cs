@@ -48,20 +48,9 @@ namespace ObserverPatternHandin
         }
     }
 
-    //Implementation inde i Stocks
-    public interface ISubject
-    {
-        void attach(Portfolio obj);
-        void detach(Portfolio obj);
-        void notify(ConcreteStocks obj);       
-    }
 
-    //Implemnetation inde i Portfolio
-    public interface IObserver
-    {
 
-        void Update(ConcreteStocks name, float value);
-    }
+
 
 
 }

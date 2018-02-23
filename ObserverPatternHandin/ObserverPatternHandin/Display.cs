@@ -9,8 +9,6 @@ namespace ObserverPatternHandin
 {
     public class PortfolioDisplay : IDisplay
     {
-        
-
         public void PrintPF(Portfolio port)
         {
             Console.WriteLine($"Portfolio: {port.Name}");
