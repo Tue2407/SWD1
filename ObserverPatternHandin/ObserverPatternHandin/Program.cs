@@ -16,7 +16,8 @@ namespace ObserverPatternHandin
             var value = obj._value = 5;
             //Stack overflow exception
             Console.WriteLine($"{name} : {value}");
-            
+            PortfolioDisplay disp = new PortfolioDisplay();
+            disp.Display();
 
         }
     }
