@@ -9,6 +9,8 @@ namespace ObserverPatternHandin
 {
     class Program
     {
+
+        //Lisbeth tester take 887
         static void Main(string[] args)
         {
             /*Stock obj1 = new Stock();
@@ -34,26 +36,11 @@ namespace ObserverPatternHandin
         void notify();       
     }
 
-        public Stock()
-        { }
-
-        public void changeStockValue(string ticker, float value)
-        {
-            Console.WriteLine("Enter ticker symbol: ");
-            _ticker = Console.ReadLine();
-            Console.WriteLine("Enter stock value: ");
-            _value = Convert.ToInt32(Console.ReadLine());
-        }
-
-        public override string ToString()
-        {
-            return "Ticker: " + _ticker + " -- Value: " + _value;
-        }
-    }
-
-    public class Portfolio
+    public interface IObserver
     {
+<<<<<<< HEAD
         public List<Stock> stockList = new List<Stock>();
+        //testcomment
 
         public Portfolio()
         { }
@@ -74,5 +61,8 @@ namespace ObserverPatternHandin
             obj2.stockList.ForEach(i => Console.WriteLine("{0}\t", i));
         }
         //Test somedude
+=======
+        void Update(string name, float value);
+>>>>>>> fcc7f2912015f6d69e830b33af3c9f396463fbcc
     }
 }
