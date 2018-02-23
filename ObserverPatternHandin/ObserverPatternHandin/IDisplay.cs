@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace ObserverPatternHandin
 {
-    public class PortfolioDisplay
+    public interface IDisplay
     {
-        public interface IDisplay
-        {
-            void Update(ConcreteStocks stock);
-        }
-
+        
     }
 }

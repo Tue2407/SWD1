@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcreteStocks.cs" />
     <Compile Include="Display.cs" />
+    <Compile Include="IDisplay.cs" />
     <Compile Include="Portfolio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
