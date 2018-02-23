@@ -27,6 +27,20 @@ namespace ObserverPatternHandin
         }
     }
 
+    public interface ISubject
+    {
+        IObserver registerObserver();
+        IObserver removeObserver();
+        IObserver notifyObserver();
+
+
+    }
+
+    public interface IObserver
+    {
+        //Update() typen data
+    }
+
     public class Stock
     {
         public string _ticker { set; get; }
