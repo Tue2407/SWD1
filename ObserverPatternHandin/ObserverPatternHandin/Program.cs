@@ -26,7 +26,8 @@ namespace ObserverPatternHandin
 
         public string _ticker { set; get; }
 
-        public int _value
+
+        public float _value
         {
             set
             {
@@ -35,7 +36,6 @@ namespace ObserverPatternHandin
             }
             get { return _value; }
         }
-    
 
         public Stock(string ticker, float value)
         {
@@ -50,6 +50,7 @@ namespace ObserverPatternHandin
             Console.WriteLine("Enter stock value: ");
             _value = Convert.ToInt32(Console.ReadLine());
         }
+
     }
 
     public class Portfolio
