@@ -29,13 +29,13 @@ namespace ObserverPatternHandin
 
     public interface ISubject
     {
-        void registerObserver();
-        void removeObserver();
-        void notifyObserver();       
+        void attach(Portfolio obj);
+        void detach(Portfolio obj);
+        void notify();       
     }
 
     public interface IObserver
     {
-        //Update() typen data
+        void Update(string name, float value);
     }
 }

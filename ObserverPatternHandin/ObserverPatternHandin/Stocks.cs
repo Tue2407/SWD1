@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,25 @@ namespace ObserverPatternHandin
 {
         public class Stock : ISubject
         {
-            public void registerObserver()
+            private List<Portfolio> ObserversList;
+
+            public void attach(Portfolio obj)
             {
-                //We do not know
+                ObserversList.Add(obj);
             }
 
-            public void removeObserver()
+
+            public void detach(Portfolio obj)
             {
-                //Wut?
+                ObserversList.Remove(obj);
             }
 
-            public void notifyObserver()
+            public void notify()
             {
-                //Okay?
+                foreach (var observers in ObserversList)
+                {
+                    observers.Update(_ticker, _value);
+                }
             }
 
             public string _ticker { set; get; }
