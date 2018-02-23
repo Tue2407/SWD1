@@ -27,16 +27,12 @@ namespace ObserverPatternHandin
         }
     }
 
-    public class Stock
+    public interface ISubject
     {
-        public string _ticker { set; get; }
-        public float _value { set; get; }
-
-        public Stock(string ticker, float value)
-        {
-            _ticker = ticker;
-            _value = value;
-        }
+        void attach(Portfolio obj);
+        void detach(Portfolio obj);
+        void notify();       
+    }
 
         public Stock()
         { }
@@ -58,7 +54,6 @@ namespace ObserverPatternHandin
     public class Portfolio
     {
         public List<Stock> stockList = new List<Stock>();
-        //testcomment
 
         public Portfolio()
         { }
