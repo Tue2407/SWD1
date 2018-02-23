@@ -16,31 +16,8 @@ namespace ObserverPatternHandin
 
     public class Stock
     {
-        public override string ToString()
-        {
-            return "Ticker: " + _ticker + " -- Value" + _value;
-        }
-
         public string _ticker { set; get; }
-
-
-        // EVENTHANDLER FOR STOCK
-        public event System.EventHandler ValueChanged;
-
-        protected virtual void OnValueChanged()
-        {
-            if (ValueChanged != null) ValueChanged(this, EventArgs.Empty);
-        }
-
-        public float _value
-        {
-            set
-            {
-                _value = value;
-                OnValueChanged();
-            }
-            get { return _value; }
-        }
+        public float _value { set; get; }
 
         public Stock(string ticker, float value)
         {
