@@ -41,7 +41,7 @@ namespace ObserverPatternHandin
 
             public Stock()
             { }
-
+        /*
             public void changeStockValue(string ticker, float value)
             {
                 Console.WriteLine("Enter ticker symbol: ");
@@ -49,7 +49,7 @@ namespace ObserverPatternHandin
                 Console.WriteLine("Enter stock value: ");
                 _value = Convert.ToInt32(Console.ReadLine());
             }
-
+            */
             public override string ToString()
             {
                 return "Ticker: " + _ticker + " -- Value: " + _value;
