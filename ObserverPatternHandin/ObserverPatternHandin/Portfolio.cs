@@ -5,17 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Den arver fra IObserver så den kan notificere og afbenytte sig af de stocks der er inde i systemet.
+//Her bliver Stocks tilknyttet og behaviour bliver defineret alt efter hvad Portfolio har brug for.
+
 namespace ObserverPatternHandin
 {
     public class Portfolio : IObserver
     {
+        private IDisplay Display;
         private float TotalValue { get; set; } = 0;
         public string Name { get; set; }
         public List<ConcreteStocks> stockList = new List<ConcreteStocks>();
 
-        public Portfolio(string name)
+        public Portfolio(string name, IDisplay display)
         {
             Name = name;
+            Display = display;
         }
 
         public void Update(ConcreteStocks name, float value)
@@ -41,7 +46,13 @@ namespace ObserverPatternHandin
             stockList.Add(stock); //Adder stock til listen hvor stock er navn, valuta, og antal
             TotalValue = stock.ValueOfSubject + TotalValue;
         }
-        
+
+        public void RemoveStock(ConcreteStocks stock)
+        {
+            stock.detach(this);
+            stockList.Remove(stock);
+            TotalValue = stock.ValueOfSubject * 0;
+        }
 
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //ABSTRACT STOCK med al implementering, så vi kun behøver at give valuta og added navnet ind
+//Arver fra stock af, så man kun behøver at bruge navn, valuta og antal.
 namespace ObserverPatternHandin
 {
     public class ConcreteStocks : Stock
@@ -22,7 +23,7 @@ namespace ObserverPatternHandin
         }
         public override string ToString()
         {
-            return "Ticker: " + NameOfSubject + " -- Value: " + ValueOfSubject;
+            return "Stock: " + NameOfSubject + " -- Value: " + ValueOfSubject;
         }
     }
 }

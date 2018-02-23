@@ -11,46 +11,40 @@ namespace ObserverPatternHandin
     {
         static void Main(string[] args)
         {
-            var enStock = new ConcreteStocks("Nystocks", 2 , 20); //Lav stock
-            var toStock = new ConcreteStocks("Andenstock", 4, 11);
+            //Tror stock skal bruges til notifikationsdelen
+            Stock stock = new Stock();
             
+            //Viser display
+            PortfolioDisplay etDisplay = new PortfolioDisplay();
+            //Laver et nyt portfolio i listen med navnet Hans, med display
+            Portfolio enPortfolio = new Portfolio("Hans", etDisplay);
+            //Laver stocks
+            ConcreteStocks enStock = new ConcreteStocks("VESTAS", (float)570.50, 1);
+            ConcreteStocks toStock = new ConcreteStocks("GOOGLE",(float)943.29, 1);
 
+            //Console.WriteLine(stock);
 
-            var enPortfolio = new Portfolio("Hans"); //Lav nyt portfolio
-            var toPortfolio = new Portfolio("Thomas");
-            //Console.WriteLine(enStock);
+            etDisplay.PrintPF(enPortfolio);
 
-            Console.WriteLine($"Portfolio af: {enPortfolio.Name} (ligenu)");
-
+            //Tilføjer
+            Console.WriteLine("\nAdding VESTAS");
             enPortfolio.AddStock(enStock);
+            etDisplay.PrintPF(enPortfolio);
+            Console.WriteLine("\nAdding GOOGLE");
             enPortfolio.AddStock(toStock);
+            etDisplay.PrintPF(enPortfolio);
+            //Updatere
+            Console.WriteLine("\nUpdating VESTAS");
+            enPortfolio.Update(enStock, 400);
+            etDisplay.PrintPF(enPortfolio);
 
-            enPortfolio.stockList.ForEach(i => Console.Write("{0}\t", i));
+;           //Fjerner
+            Console.WriteLine("\nRemoving VESTAS");
+            enPortfolio.RemoveStock(enStock);
+            etDisplay.PrintPF(enPortfolio);
 
 
-            
-            //Console.WriteLine(enPortfolio.Name);
-            
-            
-            enStock.attach(enPortfolio);
-            enPortfolio.Update(enStock, 23);
-            enStock.attach(toPortfolio);
-            enPortfolio.Update(toStock, 30);
 
-            //Console.WriteLine($"{enPortfolio.Name} : {enPortfolio.stockList[0]} : {enPortfolio.stockList[1]}");
-
-            //Console.WriteLine(enStock.AmountOfSubject);
-            //obj1.attach(obj2); //Attach til portfolio med nye stock
-
-            //Insert stocks
-            Console.WriteLine($"\n{enPortfolio.Name} stocks: (Opdateret)");
-            //Udskriv alle stocks
-            //obj2.Update("Nystocks",20);
-            //obj1.notify();
-
-            //Console.WriteLine(enPortfolio);
-            enPortfolio.stockList.ForEach(i => Console.Write("{0}\t", i));
-            
         }
     }
 
