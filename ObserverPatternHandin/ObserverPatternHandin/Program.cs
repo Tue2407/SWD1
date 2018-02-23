@@ -16,16 +16,21 @@ namespace ObserverPatternHandin
 
     public class Stock
     {
-        public event System.EventHandler ValueChanged;
+        public override string ToString()
+        {
+            return "Ticker: " + _ticker + " -- Value" + _value;
+        }
 
+        public string _ticker { set; get; }
+
+
+        // EVENTHANDLER FOR STOCK
+        public event System.EventHandler ValueChanged;
 
         protected virtual void OnValueChanged()
         {
             if (ValueChanged != null) ValueChanged(this, EventArgs.Empty);
         }
-
-        public string _ticker { set; get; }
-
 
         public float _value
         {
@@ -43,7 +48,7 @@ namespace ObserverPatternHandin
             _value = value;
         }
 
-        public void changeStockValue(string ticker, float value)
+        public void ChangeStockValue(string ticker, float value)
         {
             Console.WriteLine("Enter ticker symbol: ");
             _ticker = Console.ReadLine();
@@ -55,11 +60,14 @@ namespace ObserverPatternHandin
 
     public class Portfolio
     {
-        private List<Stock> stockList = new List<Stock>();
+        public List<Stock> stockList = new List<Stock>();
+
     }
 
-    public class PortfolioDisplay
+    public class PortfolioDisplay : Portfolio
     {
-        //Test somedude
+        // PRINT STOCK LIST FROM PORTFOLIO
+       
+
     }
 }
