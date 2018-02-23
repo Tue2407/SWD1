@@ -29,11 +29,11 @@ namespace ObserverPatternHandin
 
     public interface ISubject
     {
-        IObserver registerObserver();
-        IObserver removeObserver();
-        IObserver notifyObserver();
+        void registerObserver();
+        void removeObserver();
+        void notifyObserver();
 
-
+        
     }
 
     public interface IObserver
@@ -41,8 +41,23 @@ namespace ObserverPatternHandin
         //Update() typen data
     }
 
-    public class Stock
+    public class Stock : ISubject
     {
+        public void registerObserver()
+        {
+            //We do not know
+        }
+
+        public void removeObserver()
+        {
+            //Wut?
+        }
+
+        public void notifyObserver()
+        {
+            //Okay?
+        }
+
         public string _ticker { set; get; }
         public float _value { set; get; }
 
