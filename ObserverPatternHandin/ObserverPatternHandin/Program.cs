@@ -4,26 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ObserverPatternHandin
 {
     class Program
     {
         static void Main(string[] args)
         {
-
         }
     }
 
     public class Stock
     {
-        public string _ticker { set; get; }
-        public float _value { set; get; }
+        public string _ticker
+        {
+            get => _ticker;
+            set => _ticker = value;
+        }
+
+        public float _value
+        {
+            get => _value;
+            set => _value = value;
+        }
 
         public Stock(string ticker, float value)
         {
             _ticker = ticker;
             _value = value;
         }
+
+        public Stock()
+        { }
 
         public void changeStockValue(string ticker, float value)
         {
@@ -32,14 +44,23 @@ namespace ObserverPatternHandin
             Console.WriteLine("Enter stock value: ");
             _value = Convert.ToInt32(Console.ReadLine());
         }
+
+        public override string ToString()
+        {
+            return "Ticker: " + _ticker + " -- Value: " + _value;
+        }
     }
 
     public class Portfolio
     {
-        private List<Stock> stockList = new List<Stock>();
+        public List<Stock> stockList = new List<Stock>();
+
+        public Portfolio()
+        { }
     }
 
     public class PortfolioDisplay
     {
+
     }
 }
