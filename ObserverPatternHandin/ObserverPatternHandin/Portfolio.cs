@@ -23,7 +23,7 @@ namespace ObserverPatternHandin
             Display = display;
         }
 
-        public void Update(ConcreteStocks name, float value)
+        public void Update(ConcreteStocks name)
         {
             TotalValue = 0;
             foreach (var VARIABLE in stockList)
@@ -35,7 +35,8 @@ namespace ObserverPatternHandin
             {
                 if (VARIABLE.NameOfSubject == name.NameOfSubject) //Find navnet på stocken/subject
                 {
-                    VARIABLE.ValueOfSubject = value; //Override med den nye valuta
+                    VARIABLE.ValueOfSubject =
+                        VARIABLE.ValueOfSubject * VARIABLE.AmountOfSubject; //Override med den nye valuta ganget ind med antallet af aktier man har
                 }
             }
         }

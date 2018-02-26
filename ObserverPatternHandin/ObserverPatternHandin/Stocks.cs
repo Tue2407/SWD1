@@ -48,10 +48,10 @@ namespace ObserverPatternHandin
         {
             foreach (var observers in ObserversList)
             {
-                observers.Update(stock, _value);
+                observers.Update(stock);
             }
         }
-        //Her er stock metoden
+        //Her er stock metoden, den bruges IKKE
         public Stock(string ticker, float value)
             {
                 _ticker = ticker;

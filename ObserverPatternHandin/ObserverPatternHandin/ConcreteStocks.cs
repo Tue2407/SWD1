@@ -21,6 +21,25 @@ namespace ObserverPatternHandin
             ValueOfSubject = value;
             AmountOfSubject = amount;
         }
+        //Hvis noget ændre sig, så bliver det notifikeret/opdateret på den stocks i alle dele af systemet
+        public void setValue(float value)
+        {
+            ValueOfSubject = value;
+            notify(this);
+        }
+
+        public void setName(string name)
+        {
+            NameOfSubject = name;
+            notify(this);
+        }
+
+        public void setAmount(float amount)
+        {
+            AmountOfSubject = amount;
+            notify(this);
+        }
+
         public override string ToString()
         {
             return "Stock: " + NameOfSubject + " -- Value: " + ValueOfSubject;

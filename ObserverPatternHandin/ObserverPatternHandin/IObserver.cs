@@ -10,6 +10,6 @@ namespace ObserverPatternHandin
     public interface IObserver
     {
 
-        void Update(ConcreteStocks name, float value);
+        void Update(ConcreteStocks name);
     }
 }

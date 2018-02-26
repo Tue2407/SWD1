@@ -13,7 +13,7 @@ namespace ObserverPatternHandin
         {
             Console.WriteLine($"Portfolio: {port.Name}");
             port.stockList.ForEach(i => Console.Write("{0}\t", i));
-            Console.WriteLine("\n");
+            Console.WriteLine();
             
         }
     }
