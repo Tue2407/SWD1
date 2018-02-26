@@ -14,46 +14,48 @@ namespace ObserverPatternHandin
         static void Main(string[] args)
         {
             //Tror stock skal bruges til notifikationsdelen
-            Stock stock = new Stock();
+            var stock = new Stock();
             
             //Viser display
-            PortfolioDisplay etDisplay = new PortfolioDisplay();
+            var etDisplay = new PortfolioDisplay();
             //Laver et nyt portfolio i listen med navnet Hans, med display
-            Portfolio enPortfolio = new Portfolio("Hans", etDisplay);
-            Portfolio toPortfolio = new Portfolio("Heinrich", etDisplay);
+            var enPortfolio = new Portfolio("Hans", etDisplay);
+            var toPortfolio = new Portfolio("Eckhart", etDisplay);
             //Laver stocks
-            ConcreteStocks enStock = new ConcreteStocks("VESTAS", (float)570.50, 1);
-            ConcreteStocks toStock = new ConcreteStocks("GOOGLE",(float)943.29, 1);
+            var enStock = new ConcreteStocks("VESTAS", (float)570.50, 1);
+            var toStock = new ConcreteStocks("GOOGLE",(float)943.29, 1);
 
             //Console.WriteLine(stock);
 
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
 
             
             //Tilføjer
             Console.WriteLine("\nAdding VESTAS");
             enPortfolio.AddStock(enStock);
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
             Console.WriteLine("\nAdding GOOGLE");
             enPortfolio.AddStock(toStock);
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
             toPortfolio.AddStock(enStock);
             Thread.Sleep(5000);
             //Updatere
+            enStock.setValue(1000);
             Console.WriteLine("\nUpdating VESTAS");
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(toPortfolio);
 
             //Notifikation
             Console.WriteLine("\nNotifikation: Ændring af VESTAS til DINMOR");
             enStock.setName("DINMOR");
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
             
-            etDisplay.PrintPF(toPortfolio);
+            //etDisplay.PrintPF(toPortfolio);
 
 ;           //Fjerner
             Console.WriteLine("\nRemoving VESTAS");
             enPortfolio.RemoveStock(enStock);
-            etDisplay.PrintPF(enPortfolio);
+            //etDisplay.PrintPF(enPortfolio);
             
         }
     }

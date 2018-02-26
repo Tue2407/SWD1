@@ -33,6 +33,12 @@ namespace ObserverPatternHandin
 
             foreach (var VARIABLE in stockList)
             {
+                if(VARIABLE.NameOfSubject == name.NameOfSubject)
+                Display.PrintPF(this);
+            }
+
+            foreach (var VARIABLE in stockList)
+            {
                 if (VARIABLE.NameOfSubject == name.NameOfSubject) //Find navnet på stocken/subject
                 {
                     VARIABLE.ValueOfSubject =

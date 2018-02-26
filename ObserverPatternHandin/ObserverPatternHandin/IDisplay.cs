@@ -12,5 +12,6 @@ namespace ObserverPatternHandin
     public interface IDisplay
     {
         void PrintPF(Portfolio port);
+        
     }
 }
