@@ -21,7 +21,6 @@ namespace SuperSorter
         {
             Supersorting obj = new Supersorting();
             obj.ArrayGenerator(10, 5);
-            //Console.Write($"{obj.ArrayGenerator(10,20).Length}");
         }
        
     }
@@ -36,7 +35,8 @@ namespace SuperSorter
             for (int i = 0; i < n; i++)
             {
                 int a = rng.Next(0, n+1);
-                array[n] = a;
+                array[i] = a;
+                Console.WriteLine($"{array[i]}");
             }
             return array;
         }
