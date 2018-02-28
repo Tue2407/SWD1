@@ -19,8 +19,36 @@ namespace SuperSorter
     {
         static void Main(string[] args)
         {
+            string input;
+            int n, seed;
+
+            Console.WriteLine($"Indtast storrelsen af Array, derefter Seed:");
+
+            input  = Console.ReadLine();
+            Int32.TryParse(input, out n);
+
+            input = Console.ReadLine();
+            Int32.TryParse(input, out seed);
+
             Supersorting obj = new Supersorting();
-            obj.ArrayGenerator(10, 5);
+
+            if (!Int32.TryParse(input, out n))
+            {
+                Console.WriteLine($"Error: Properly no letters.");
+                //no, not able to parse, repeat, throw exception, use fallback value?
+            }
+
+            if (!Int32.TryParse(input, out seed))
+            {
+                Console.WriteLine($"Not a number.");
+            }
+            else
+            {
+                obj.ArrayGenerator(n, seed);
+            }
+            
+            
+            
         }
        
     }
@@ -41,6 +69,5 @@ namespace SuperSorter
             return array;
         }
     }
-
 }
 
