@@ -9,15 +9,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SuperSorter
 {
-    class Program
+    class Mainnew
     {
         static void Main(string[] args)
         {
+            Supersorting obj = new Supersorting();
+            obj.ArrayGenerator(10, 5);
+            //Console.Write($"{obj.ArrayGenerator(10,20).Length}");
+        }
+       
+    }
+
+    public class Supersorting
+    {
+        public int[] ArrayGenerator(int n, int seed)
+        {
+            Random rng = new Random(seed);
+            int[] array = new int[n];
+            
+            for (int i = 0; i < n; i++)
+            {
+                int a = rng.Next(0, n+1);
+                array[n] = a;
+            }
+            return array;
         }
     }
+
 }
+
