@@ -11,19 +11,20 @@ namespace ObserverPatternHandin
 {
     public class ConcreteStocks : Stock
     {
-        public float ValueOfSubject { get; set; }
+        public double ValueOfSubject { get; set; }
         public string NameOfSubject { get; set; }
-        public float AmountOfSubject { get; set; }
+        public double AmountOfSubject { get; set; }
 
-        public ConcreteStocks(string name, float value, float amount)
+        public ConcreteStocks(string name, double value, double amount)
         {
             NameOfSubject = name;
             ValueOfSubject = value;
             AmountOfSubject = amount;
         }
         //Hvis noget ændre sig, så bliver det notifikeret/opdateret på den stocks i alle dele af systemet
-        public void setValue(float value)
+        public void setValue(double value)
         {
+            Console.WriteLine("\n Changing value: " + value + " of stock: " + this.NameOfSubject);
             ValueOfSubject = value;
             notify(this);
         }
@@ -34,7 +35,7 @@ namespace ObserverPatternHandin
             notify(this);
         }
 
-        public void setAmount(float amount)
+        public void setAmount(double amount)
         {
             AmountOfSubject = amount;
             notify(this);

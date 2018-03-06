@@ -13,7 +13,7 @@ namespace ObserverPatternHandin
     public class Portfolio : IObserver
     {
         private IDisplay Display;
-        private float TotalValue { get; set; } = 0;
+        private double TotalValue { get; set; } = 0;
         public string Name { get; set; }
         public List<ConcreteStocks> stockList = new List<ConcreteStocks>();
 
@@ -52,6 +52,7 @@ namespace ObserverPatternHandin
             stock.attach(this);//Attacher whatever man vil attach, men den skal helst have portfolio ind Ellers dør baby!
             stockList.Add(stock); //Adder stock til listen hvor stock er navn, valuta, og antal
             TotalValue = stock.ValueOfSubject + TotalValue;
+            Console.WriteLine("\nAdding " + stock + " to Portfolio: " + this.Name);
         }
 
         public void RemoveStock(ConcreteStocks stock)
@@ -59,6 +60,7 @@ namespace ObserverPatternHandin
             stock.detach(this);
             stockList.Remove(stock);
             TotalValue = stock.ValueOfSubject * 0;
+            Console.WriteLine("\nRemoving " + stock + " from Portfolio: " + this.Name);
         }
 
     }

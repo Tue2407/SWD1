@@ -22,8 +22,8 @@ namespace ObserverPatternHandin
             var enPortfolio = new Portfolio("Hans", etDisplay);
             var toPortfolio = new Portfolio("Eckhart", etDisplay);
             //Laver stocks
-            var enStock = new ConcreteStocks("VESTAS", (float)570.50, 1);
-            var toStock = new ConcreteStocks("GOOGLE",(float)943.29, 1);
+            var enStock = new ConcreteStocks("VESTAS", 570.50, 1);
+            var toStock = new ConcreteStocks("GOOGLE",943.29, 1);
 
             //Console.WriteLine(stock);
 
@@ -31,32 +31,53 @@ namespace ObserverPatternHandin
 
             
             //Tilføjer
-            Console.WriteLine("\nAdding VESTAS");
+            //Console.WriteLine("\nAdding VESTAS");
             enPortfolio.AddStock(enStock);
             //etDisplay.PrintPF(enPortfolio);
-            Console.WriteLine("\nAdding GOOGLE");
+            //Console.WriteLine("\nAdding GOOGLE");
             enPortfolio.AddStock(toStock);
             //etDisplay.PrintPF(enPortfolio);
             toPortfolio.AddStock(enStock);
-            Thread.Sleep(5000);
+            
             //Updatere
-            enStock.setValue(1000);
-            Console.WriteLine("\nUpdating VESTAS");
+             Random number = new Random();
+            int counter = 0;
+
+            while (counter < 5)
+            {
+                
+                Thread.Sleep(1000);
+                double number1 = number.NextDouble() * (enStock.ValueOfSubject * 1.05 - enStock.ValueOfSubject * 0.95) + enStock.ValueOfSubject * 0.95; //Det her giver mig mellem 95 og 105 procent
+                enStock.setValue(number1);
+
+                counter++;
+            }
+            
+            //Console.WriteLine("\nUpdating VESTAS");
             //etDisplay.PrintPF(enPortfolio);
             //etDisplay.PrintPF(toPortfolio);
 
             //Notifikation
-            Console.WriteLine("\nNotifikation: Ændring af VESTAS til DINMOR");
+            //Console.WriteLine("\nNotifikation: Ændring af VESTAS til DINMOR");
             enStock.setName("DINMOR");
             //etDisplay.PrintPF(enPortfolio);
             
             //etDisplay.PrintPF(toPortfolio);
 
 ;           //Fjerner
-            Console.WriteLine("\nRemoving VESTAS");
+            //Console.WriteLine("\nRemoving VESTAS");
             enPortfolio.RemoveStock(enStock);
             //etDisplay.PrintPF(enPortfolio);
-            
+            while (counter < 10)
+            {
+
+                Thread.Sleep(1000);
+                double number1 = number.NextDouble() * (toStock.ValueOfSubject * 1.05 - toStock.ValueOfSubject * 0.95) + toStock.ValueOfSubject * 0.95; //Det her giver mig mellem 95 og 105 procent
+                toStock.setValue(number1);
+
+                counter++;
+            }
+
         }
     }
 }
